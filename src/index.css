@@ -1,3 +1,9 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -6,9 +12,80 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f2f2f2;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+
+/* Our Grid Code */
+
+.App {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 100px 250px 1fr;
+  grid-template-rows: auto 1fr auto;
+}
+
+.App__section {
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+
+.App__section--header     { background-color: #ffffff; }
+.App__section--teams      { background-color: #362233; }
+.App__section--channels   { background-color: #52364E; }
+.App__section--messages   { background-color: #ffffff; }
+.App__section--write      { background-color: #f2f2f2; }
+
+.App__section--teams {
+  grid-column: 1;
+  grid-row: 1 / 4;
+}
+
+.App__section--channels {
+  grid-column: 2;
+  grid-row: 1 / 4;
+}
+
+.App__section--header {
+  grid-column: 3;
+  grid-row: 1;
+  color: #333;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.App__section--messages {
+  grid-column: 3;
+  grid-row: 2;
+  padding: 0 1em;
+  overflow-y: scroll;
+}
+
+.App__section--input {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+input {
+  width: 100%;
+  padding: 1em;
+  outline: none;
+  border: 1px solid #f2f2f2;
+}
+
+.message-list {
+  margin: 0;
+  padding: 0;
+}
+
+.message-list li {
+  padding: .2em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  background-color: #f2f2f2;
 }
