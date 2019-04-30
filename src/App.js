@@ -2,11 +2,15 @@ import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
 
+import UserBadge from './UserBadge';
+
 function App() {
   return (
     <div className='App'>
       <div className='App__section App__section--teams '>Teams</div>
-      <div className='App__section App__section--channels'>Channels</div>
+      <div className='App__section App__section--channels'>
+        <UserBadge/>
+      </div>
       <div className='App__section App__section--header'>Header</div>
       <div className='App__section App__section--messages'>
         <ul className='message-list'>

@@ -20,6 +20,11 @@ code {
     monospace;
 }
 
+/* Reset */
+h1, h2, h3 {
+  margin: 0;
+}
+
 
 /* Our Grid Code */
 
@@ -36,11 +41,14 @@ code {
   text-align: center;
 }
 
+/* Colors */
 .App__section--header     { background-color: #ffffff; }
 .App__section--teams      { background-color: #362233; }
 .App__section--channels   { background-color: #52364E; }
 .App__section--messages   { background-color: #ffffff; }
 .App__section--write      { background-color: #f2f2f2; }
+
+/* Layout */
 
 .App__section--teams {
   grid-column: 1;
@@ -71,6 +79,9 @@ code {
   grid-row: 3;
 }
 
+/* Component level styling */
+
+/* Input */
 input {
   width: 100%;
   padding: 1em;
@@ -78,6 +89,7 @@ input {
   border: 1px solid #f2f2f2;
 }
 
+/* Message list */
 .message-list {
   margin: 0;
   padding: 0;
@@ -88,4 +100,26 @@ input {
   margin-top: 1em;
   margin-bottom: 1em;
   background-color: #f2f2f2;
+}
+
+
+
+.user-badge {
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+}
+.user-badge .user-badge__avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  overflow: hidden;
+  margin-right: 10px;
+  border: 2px solid grey;
+}
+.user-badge .user-badge__avatar img {
+  width: 100%;
+}
+.user-badge h3 {
+  margin: 0;
 }
