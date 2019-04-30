@@ -2,7 +2,11 @@ import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
 
-import UserBadge from './UserBadge';
+import ChannelList from './components/ChannelList';
+import Channel from './components/Channel';
+import UserBadge from './components/UserBadge';
+
+
 
 function App() {
   return (
@@ -10,55 +14,9 @@ function App() {
       <div className='App__section App__section--teams '>Teams</div>
       <div className='App__section App__section--channels'>
         <UserBadge/>
+        <ChannelList/>
       </div>
-      <div className='App__section App__section--header'>Header</div>
-      <div className='App__section App__section--messages'>
-        <ul className='message-list'>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-      </div>
-      <div className='App__section App__section--input'>
-        <input type='text' placeholder='Have you tried the CSS Grid Layout Module?'/>
-      </div>
+      <Channel />
     </div>
   );
 }

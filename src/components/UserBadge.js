@@ -7,7 +7,7 @@ const UserBadge = () => (
     </div>
     <div className="user-badge__detail">
       <h3>User name</h3>
-      <a>log out</a>
+      <button>log out</button>
     </div>
   </div>
 )
