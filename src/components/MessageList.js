@@ -16,8 +16,8 @@ const MessageList = () => {
             {
               messages.map((message, index) => {
                 return index === 0 ?
-                <MessageWithAvatar message={message}/> :
-                <Message message={message}/>
+                <MessageWithAvatar key={message.id} message={message}/> :
+                <Message key={message.id} message={message}/>
               })
             }
           </ul>

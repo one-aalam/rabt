@@ -1,13 +1,14 @@
 import React from 'react';
+import { firebase } from '../firebase';
 
-const UserBadge = () => (
+const UserBadge = ({ user }) => (
   <div className="user-badge">
     <div className="user-badge__avatar">
-      <img src="https://robohash.org/Y1D.png?set=set1" alt="" title=""></img>
+      <img src={user.photoURL} alt="" title=""></img>
     </div>
     <div className="user-badge__detail">
-      <h3>User name</h3>
-      <button>log out</button>
+      <h3>{user.displayName}</h3>
+      <button onClick={() => firebase.auth().signOut()}>log out</button>
     </div>
   </div>
 )
