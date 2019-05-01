@@ -1,7 +1,7 @@
 import React from 'react';
 import { db } from '../firebase';
 
-const MessageInputBox = () => (
+const MessageInputBox = ({ user }) => (
   <form onSubmit={ evt => {
     evt.preventDefault();
     const elm = evt.target.elements[0];
@@ -9,6 +9,7 @@ const MessageInputBox = () => (
       .doc('6AASkCYkRMeSepdVaPRM')
       .collection('messages')
       .add({
+        user: db.collection('users').doc(user.id),
         text: elm.value,
         createdAt: new Date()
       });

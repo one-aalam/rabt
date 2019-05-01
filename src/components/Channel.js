@@ -3,12 +3,12 @@ import ChannelHeader from './ChannelHeader';
 import MessageList from './MessageList';
 import MessageInputBox from './MessageInputBox';
 
-const Channel = () => {
+const Channel = ({ user }) => {
   return (
     <>
       <ChannelHeader />
       <MessageList />
-      <MessageInputBox />
+      <MessageInputBox user={user}/>
     </>
   )
 }
