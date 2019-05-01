@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { firebase } from './firebase';
+import { db, firebase } from './firebase';
 // import logo from './logo.svg';
 import './App.css';
 
@@ -25,15 +25,31 @@ function App() {
 export default App;
 
 function Login() {
+  const [ authError, setAuthError ] = useState(null);
   const handleSignIn = async () => {
     const provider = new firebase.auth.GoogleAuthProvider();
-    await firebase.auth().signInWithPopup(provider);
+    try {
+      await firebase.auth().signInWithPopup(provider);
+    } catch(error) {
+      setAuthError(error);
+    }
   }
 
   return (
     <div className='App'>
       <h1>Chat</h1>
       <button onClick={handleSignIn}>Sign in with Google</button>
+      {
+        authError && (
+          <div>
+            <p>Sorry, there was a problem</p>
+            <p>
+              <i>{authError.message}</i>
+            </p>
+            <p>Please try again</p>
+          </div>
+        )
+      }
     </div>
   );
 }
@@ -43,19 +59,20 @@ function useAuth() {
   const [ user, setUser ] = useState(null);
 
   useEffect(() => {
-    firebase.auth().onAuthStateChanged(user => {
-      if(user) {
-        const { displayName, photoURL, uid } = user;
-        setUser({
-          displayName,
-          photoURL,
-          uid
-        })
+    firebase.auth().onAuthStateChanged(fbUser => {
+      if(fbUser) {
+        const { displayName, photoURL, uid } = fbUser;
+        const user = { displayName, photoURL, uid }
+        setUser(user)
+        db
+          .collection('users')
+          .doc(user.uid)
+          .set(user, { merge: true })
       } else {
         setUser(null);
       }
     })
-  }, [])
+  }, [ user ])
 
   return user;
 }
