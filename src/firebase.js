@@ -4,12 +4,12 @@ import 'firebase/auth';
 
 // Initialize Firebase
 const config = {
-  apiKey: "AIzaSyBSnPjUrHhJwNWGEnsdhGefn6P4VszDehE",
-  authDomain: "rabt-afba1.firebaseapp.com",
-  databaseURL: "https://rabt-afba1.firebaseio.com",
-  projectId: "rabt-afba1",
-  storageBucket: "rabt-afba1.appspot.com",
-  messagingSenderId: "602480368159"
+  apiKey: "AIzaSyBBh17imCof5BrNuVBXAoNegJksaZgecoQ",
+    authDomain: "chat-some.firebaseapp.com",
+    databaseURL: "https://chat-some.firebaseio.com",
+    projectId: "chat-some",
+    storageBucket: "chat-some.appspot.com",
+    messagingSenderId: "477458730110"
 };
 firebase.initializeApp(config);
 

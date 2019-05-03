@@ -3,10 +3,10 @@ import useCollection from '../useCollection';
 import Message from './Message';
 import MessageWithAvatar from './MessageWithAvatar';
 
-const MessageList = () => {
+const MessageList = ({ channelId }) => {
 
   const messages = useCollection(
-    'channels/6AASkCYkRMeSepdVaPRM/messages',
+    `channels/${channelId}/messages`,
     'createdAt'
   )
 
@@ -15,9 +15,12 @@ const MessageList = () => {
         <ul className='message-list'>
             {
               messages.map((message, index) => {
-                return index === 0 ?
-                <MessageWithAvatar key={message.id} message={message}/> :
-                <Message key={message.id} message={message}/>
+                const previous = messages[index -1];
+                const showAvatar = !previous || message.user.id !== previous.user.id;
+                const showDay = false;
+                return showAvatar ?
+                <MessageWithAvatar message={message} showDay={showDay} key={message.id}/> :
+                <Message message={message} key={message.id}/>
               })
             }
           </ul>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Message = ({ message }) => (
-  <li className="message">
+  <li className="message" key={message.id}>
   <div className="message__avatar">
     {/* <img src="https://robohash.org/qrrqr.png?set=set1" alt=""/> */}
   </div>
