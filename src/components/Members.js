@@ -13,7 +13,7 @@ const Members = ({ channelId }) => {
       {
         members.map(member => (
           <div className="member" key={member.uid}>
-            {member.displayName}
+            {member.displayName} {member.status && member.status.state  && `(${member.status.state})`}
           </div>
         ))
       }
