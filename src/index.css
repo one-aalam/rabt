@@ -12,7 +12,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f2f2f2;
+  /* background-color: #f2f2f2; */
 }
 
 code {
@@ -72,6 +72,8 @@ h1, h2, h3 {
   grid-row: 1;
   color: #333;
   border-bottom: 1px solid #f2f2f2;
+  text-align: left;
+  background: #fafaf1;
 }
 
 .App__section--messages {
@@ -84,16 +86,19 @@ h1, h2, h3 {
 .App__section--input {
   /* grid-column: 3; */
   grid-row: 3;
+  padding: 0.4rem;
 }
 
 /* Component level styling */
 
 /* Input */
 input {
+  font-size: 0.9rem;
   width: 100%;
-  padding: 1em;
+  padding: .8rem;
   outline: none;
-  border: 1px solid #f2f2f2;
+  border: 4px solid #f2f2f2;
+  border-radius: 0.4rem;
 }
 
 /* Message list */
@@ -147,21 +152,28 @@ input {
 .message {
   display: flex;
   justify-items: left;
-  align-items: left;
   padding: .1em 0;
 }
 
+.message--with-avatar {
+  margin-top: .4rem;
+}
+
 .message__avatar {
-  width: 50px;
+  width: 42px;
+  height: 42px;
+  border-radius: 2px;
   margin-right: 10px;
 }
 
-.message__avatar img {
-  width: 100%;
+.message__avatar--fuax {
+  width: 42px;
+  margin-right: 10px;
 }
 
+
 .message__author {
-  margin-top: 16px;
+  margin-top: 6px;
   margin-bottom: 2px;
   text-align: left;
 }
@@ -176,5 +188,23 @@ input {
 }
 
 .message__content {
-  color: black;
+  color: #393434;
+  font-size: .9rem;
+  text-align: left;
+}
+
+.date-sep {
+  border: 0;
+  border-bottom: 1px dashed #ccc;
+  margin: 1rem 0;
+}
+.date-sep p {
+  margin: 0;
+  position: relative;
+  color: #5c5656;
+  top: 12px;
+  display: inline-block;
+  padding: .2rem .6rem;
+  background: white;
+  font-weight: 600;
 }
